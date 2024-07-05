@@ -4,6 +4,11 @@ import com.example.model.*;
 import com.example.controller.AdminController;
 
 public class DataInitializer {
+    /**
+     * Initializes data for instructors, courses, students, and assignments.
+     *
+     * @param  adminController  the AdminController object to manage the initialization
+     */
     public static void initialize(AdminController adminController) {
         // Create instructors
         Instructor instructor1 = new Instructor("Dr. Smith");

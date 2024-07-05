@@ -9,6 +9,11 @@ import com.example.model.Student;
 
 public class OnlineCourseManagementSystem {
 
+    /**
+     * The main function of the OnlineCourseManagementSystem.
+     *
+     * @param  args   the command line arguments
+     */
     public static void main(String[] args) {
         AdminController adminController = new AdminController();
         InstructorController instructorController = new InstructorController();

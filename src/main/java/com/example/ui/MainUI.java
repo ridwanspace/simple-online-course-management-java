@@ -36,6 +36,21 @@ public class MainUI extends JFrame {
         setResizable(false);
     }
 
+    /**
+     * Creates the view for the main UI.
+     *
+     * This method initializes a JPanel and adds it to the content pane of the main UI.
+     * It then sets the layout of the panel to a GridLayout with 7 rows and 1 column,
+     * and 10 horizontal and vertical gaps.
+     *
+     * It creates several JButtons for different actions, such as admin login, view courses,
+     * view students, view instructors, apply course, and generate reports.
+     *
+     * It adds action listeners to each button, which will be handled by separate listeners
+     * for admin login, view courses, view students, view instructors, apply course, and generate reports.
+     *
+     * Finally, it adds all the buttons to the panel.
+     */
     private void createView() {
         JPanel panel = new JPanel();
         getContentPane().add(panel);
@@ -104,6 +119,11 @@ public class MainUI extends JFrame {
     }
 
     private class ViewButtonListener implements ActionListener {
+    /**
+     * Handles the action event when a button is clicked in the main UI.
+     *
+     * @param  e  the action event triggered by the button click
+     */
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton source = (JButton) e.getSource();
@@ -118,6 +138,11 @@ public class MainUI extends JFrame {
     }
 
     private class ApplyCourseButtonListener implements ActionListener {
+        /**
+         * Performs an action event when a button is clicked in the main UI. 
+         *
+         * @param  e  the action event triggered by the button click
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             JComboBox<String> studentDropdown = new JComboBox<>();
@@ -151,6 +176,11 @@ public class MainUI extends JFrame {
     }
 
     private class GenerateReportsButtonListener implements ActionListener {
+        /**
+         * A method that handles the action performed event.
+         *
+         * @param  e    the ActionEvent triggering the action
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             String[] options = {"Students per Instructor", "Courses per Student"};
@@ -167,6 +197,9 @@ public class MainUI extends JFrame {
         }
     }
 
+    /**
+     * A method to display the list of courses in a dialog window.
+     */
     private void displayCourses() {
         StringBuilder coursesList = new StringBuilder("Courses:\n");
         for (Course course : adminController.getCourses()) {
@@ -175,6 +208,9 @@ public class MainUI extends JFrame {
         JOptionPane.showMessageDialog(MainUI.this, coursesList.toString());
     }
 
+    /**
+     * A method to display the list of students in a dialog window.
+     */
     private void displayStudents() {
         StringBuilder studentsList = new StringBuilder("Students:\n");
         for (Student student : adminController.getStudents()) {
@@ -183,6 +219,11 @@ public class MainUI extends JFrame {
         JOptionPane.showMessageDialog(MainUI.this, studentsList.toString());
     }
 
+    /**
+     * A method to display the list of instructors in a dialog window.
+     *
+     * @return          description of return value
+     */
     private void displayInstructors() {
         StringBuilder instructorsList = new StringBuilder("Instructors:\n");
         for (Instructor instructor : adminController.getInstructors()) {
@@ -191,6 +232,11 @@ public class MainUI extends JFrame {
         JOptionPane.showMessageDialog(MainUI.this, instructorsList.toString());
     }
 
+    /**
+     * The main method of the program that initializes and displays the main user interface.
+     *
+     * @param  args  the command line arguments passed to the program
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             MainUI mainUI = new MainUI();
